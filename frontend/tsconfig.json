@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "strict": true,
+        "types": [],
+        "outDir": "./dist",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true
+    },
+}

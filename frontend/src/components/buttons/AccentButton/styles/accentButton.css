@@ -1,0 +1,9 @@
+.accentButton {
+    background-color: #FCFF00;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
