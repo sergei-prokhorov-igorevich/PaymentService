@@ -6,12 +6,6 @@ const createOrderRouter = async (): Promise<Router> => {
 
   router.get('/:orderGuid', async (req, res) => {
     const orderGuid = req.params.orderGuid;
-
-    if (!orderGuid) {
-      res.sendStatus(400);
-      return;
-    }
-
     const order = await getOrderByGuid(orderGuid);
 
     if (order) {

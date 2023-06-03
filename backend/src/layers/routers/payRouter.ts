@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { payByOrder } from '../business';
+import { ELogLevel, log } from '../../logger/logger';
 
 const createPayRouter = async (): Promise<Router> => {
   const router = Router();
@@ -8,7 +9,8 @@ const createPayRouter = async (): Promise<Router> => {
     const orderGuid = req.params.orderGuid;
     const password = req.body['password'];
 
-    if (!orderGuid || !password) {
+    if (!password) {
+      log(ELogLevel.Warning, 'password is empty.');
       res.sendStatus(400);
       return;
     }
