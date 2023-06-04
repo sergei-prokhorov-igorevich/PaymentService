@@ -4,7 +4,7 @@ import { payOrderUrl } from '../../../../urls';
 import { EDataRequestStatus } from '../../../../enums/dataRequestStatus';
 import { useAppSelector } from '../../../../store/store';
 import { GeneralButton } from '../../../buttons/GeneralButton/GeneralButton';
-import './styles/orderDetails.css';
+import './orderDetails.css';
 import { Gap, GapSize } from '../../../Gap/Gap';
 
 function OrderDetails() {

@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import OrderPage from '../OrderPage/OrderPage';
 import { store } from '../../store/store';
 import { AccentButton } from '../buttons/AccentButton/AccentButton';
-import './styles/app.css';
+import './app.css';
 
 function App() {
   return (
@@ -13,8 +13,8 @@ function App() {
         <header>
           <div className="headerTitle">Moment payment service by Rapyd (demo)</div>
           <nav>
-            <AccentButton onClick={() => console.log('handleLoginClick();')} children="Login" />
-            <AccentButton onClick={() => console.log('handleSignUpClick();')} children="Sign up" />
+            <AccentButton onClick={() => console.warn('handleLoginClick();')} children="Login" />
+            <AccentButton onClick={() => console.warn('handleSignUpClick();')} children="Sign up" />
           </nav>
         </header>
 

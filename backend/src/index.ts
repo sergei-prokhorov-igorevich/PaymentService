@@ -9,21 +9,21 @@ const api = '/api/v1';
 const port = process.env.PORT || 80;
 
 const startApp = async () => {
-    initLogger();
-    const app = express();
+  initLogger();
+  const app = express();
 
-    app.use(cors());
-    app.use(express.json());
-    app.listen(port, () => console.log(`Server started at http://localhost:${port}${api}`));
+  app.use(cors());
+  app.use(express.json());
+  app.listen(port, () => console.log(`Server started at http://localhost:${port}${api}`));
 
-    const orderRouter = await createOrderRouter();
-    app.use(`${api}/order`, orderRouter);
+  const orderRouter = await createOrderRouter();
+  app.use(`${api}/order`, orderRouter);
 
-    const payRouter = await createPayRouter();
-    app.use(`${api}/pay`, payRouter);
+  const payRouter = await createPayRouter();
+  app.use(`${api}/pay`, payRouter);
 
-    const loggerRouter = await createLoggerRouter();
-    app.use(`${api}/logger`, loggerRouter);
-}
+  const loggerRouter = await createLoggerRouter();
+  app.use(`${api}/logger`, loggerRouter);
+};
 
-startApp();
+startApp(); // возможно удалить?

@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/gap.css';
+import './gap.css';
 
 enum GapSize {
   Medium = 'medium',

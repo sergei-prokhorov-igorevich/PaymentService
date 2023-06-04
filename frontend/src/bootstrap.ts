@@ -4,9 +4,8 @@ import { App } from './components/App/App';
 
 const rootEl = document.getElementById('root');
 if (rootEl) {
-  const root = ReactDOM.createRoot(rootEl);
   const app = React.createElement(App);
-  root.render(app);
+  ReactDOM.createRoot(rootEl).render(app);
 } else {
   console.error('Element root not found!');
 }
