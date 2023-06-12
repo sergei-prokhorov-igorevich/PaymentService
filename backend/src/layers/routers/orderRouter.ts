@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { getOrderByGuid } from '../business';
+import { EHttpStatusCode } from '../../enums/httpStatusCode';
 
 const createOrderRouter = async (): Promise<Router> => {
   const router = Router();
@@ -11,7 +12,7 @@ const createOrderRouter = async (): Promise<Router> => {
     if (order) {
       res.send(order);
     } else {
-      res.sendStatus(404);
+      res.sendStatus(EHttpStatusCode.NotFound);
     }
   });
 

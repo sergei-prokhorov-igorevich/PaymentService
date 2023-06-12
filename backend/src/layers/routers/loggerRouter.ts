@@ -1,12 +1,11 @@
 import { Router } from 'express';
-import { payByOrder } from '../business';
 import { readAllLogs } from '../../logger/logger';
 
 const createLoggerRouter = (): Router => {
   const router = Router();
 
-  router.get('/getAll', (req, res) => {
-    const logs = readAllLogs().replace('\r\n', '<br>');
+  router.get('/getAll', async (_req, res) => {
+    const logs = (await readAllLogs()).replace('\r\n', '<br>');
     res.send(logs);
   });
 

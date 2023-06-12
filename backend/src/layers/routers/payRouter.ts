@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { payByOrder } from '../business';
 import { ELogLevel, log } from '../../logger/logger';
+import { EHttpStatusCode } from '../../enums/httpStatusCode';
 
 const createPayRouter = async (): Promise<Router> => {
   const router = Router();
@@ -11,7 +12,7 @@ const createPayRouter = async (): Promise<Router> => {
 
     if (!password) {
       log(ELogLevel.Warning, 'password is empty.');
-      res.sendStatus(400);
+      res.sendStatus(EHttpStatusCode.BadRequest);
       return;
     }
 

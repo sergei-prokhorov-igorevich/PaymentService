@@ -1,8 +1,6 @@
 import { MongoClient } from 'mongodb';
 import { mongodbConnectionString } from '../secret';
 
-const client = new MongoClient(mongodbConnectionString);
-const database = client.db('Moment');
-const ordersCollection = database.collection('orders');
+const ordersCollection = new MongoClient(mongodbConnectionString).db('Moment').collection('orders');
 
-export { ordersCollection }
+export { ordersCollection };
