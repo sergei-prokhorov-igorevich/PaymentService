@@ -1,9 +1,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import OrderPage from '../OrderPage/OrderPage';
+import { OrderPage } from '../pages/OrderPage/OrderPage';
 import { store } from '../../store/store';
-import { AccentButton } from '../buttons/AccentButton/AccentButton';
+import { AccentButton } from '../common/buttons/AccentButton/AccentButton';
 import './app.css';
+
+const projectName = 'Payment service (demo-project Sergei Prokhorov)';
+const footerText = `© ${new Date().getFullYear()} ${projectName}`;
 
 function App() {
   return (
@@ -11,7 +14,7 @@ function App() {
       <div className="app">
 
         <header>
-          <div className="headerTitle">Moment payment service by Rapyd (demo)</div>
+          <div className="headerTitle">{projectName}</div>
           <nav>
             <AccentButton onClick={() => console.warn('handleLoginClick();')} children="Login" />
             <AccentButton onClick={() => console.warn('handleSignUpClick();')} children="Sign up" />
@@ -22,7 +25,7 @@ function App() {
           <OrderPage />
         </main>
 
-        <footer>©2023 Rapyd Financial Network (2016) Ltd.</footer>
+        <footer>{footerText}</footer>
 
       </div>
     </Provider>

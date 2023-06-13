@@ -1,11 +1,11 @@
 import React from 'react';
-import OrderDetails from './components/OrderDetails/OrderDetails';
-import { loadOrder } from '../../store/features/orderSlice';
-import { getOrderGuidUrl } from '../../urls';
-import { useAppDispatch } from '../../store/store';
-import { EDataRequestStatus } from '../../enums/dataRequestStatus';
-import { GlobalReach } from '../../resources/svg/GlobalReach';
-import { Gap, GapSize } from '../Gap/Gap';
+import { OrderDetails } from './components/OrderDetails/OrderDetails';
+import { loadOrder } from '../../../store/features/orderSlice';
+import { getOrderGuidUrl } from '../../../urls';
+import { useAppDispatch } from '../../../store/store';
+import { EDataRequestStatus } from '../../../enums/dataRequestStatus';
+import { GlobalReach } from '../../../resources/svg/GlobalReach';
+import { Gap, GapSize } from '../../common/Gap/Gap';
 
 // Current mongoDB server for demo-project example has only one order.
 const orderGuid = 'f4f9d523-47b6-4758-998a-f6a0e47158ac';
@@ -69,4 +69,4 @@ function OrderPage() {
     </>
   );
 }
-export default OrderPage;
+export { OrderPage };

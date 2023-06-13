@@ -1,11 +1,12 @@
 import React from 'react';
-import { createPost } from '../../../../utils/fetchUtils';
-import { payOrderUrl } from '../../../../urls';
-import { EDataRequestStatus } from '../../../../enums/dataRequestStatus';
-import { useAppSelector } from '../../../../store/store';
-import { GeneralButton } from '../../../buttons/GeneralButton/GeneralButton';
+import { createPost } from '../../../../../utils/fetchUtils';
+import { payOrderUrl } from '../../../../../urls';
+import { EDataRequestStatus } from '../../../../../enums/dataRequestStatus';
+import { useAppSelector } from '../../../../../store/store';
+import { GeneralButton } from '../../../../common/buttons/GeneralButton/GeneralButton';
+import { Gap, GapSize } from '../../../../common/Gap/Gap';
+import { Field } from '../../../../common/Field/Field';
 import './orderDetails.css';
-import { Gap, GapSize } from '../../../Gap/Gap';
 
 function OrderDetails() {
   const order = useAppSelector((state) => state.orderState.order);
@@ -15,13 +16,6 @@ function OrderDetails() {
 
   const [password, setPassword] = React.useState<string>('');
   const [payStatus, setPayStatus] = React.useState<EDataRequestStatus>(EDataRequestStatus.NotRequested);
-
-  const renderField = (label: string, node: React.ReactNode) => (
-    <div className="field">
-      <div className="fieldLabel">{label}</div>
-      <div>{node}</div>
-    </div>
-  );
 
   function handlePayClick(): void {
     if (password) {
@@ -37,6 +31,7 @@ function OrderDetails() {
     setPayStatus(EDataRequestStatus.InvalidData);
   }
 
+  const amount = order.currency + order.amount;
   const passwordInput = (
     <input
       type="text"
@@ -47,18 +42,19 @@ function OrderDetails() {
 
   return (
     <div className="orderDetails">
-      {renderField('Order number:', order.orderId)}
-      {renderField('Payer\'s ID:', order.payerId)}
-      {renderField('Amount:', `${order.amount} ${order.currency}`)}
-      {renderField('Payment method:', order.paymentMethod)}
-      {payStatus !== EDataRequestStatus.Success && renderField('Text message password:', passwordInput)}
+      <Field label="Order number:">{order.orderId}</Field>
+      <Field label="Payer's ID:">{order.payerId}</Field>
+      <Field label="Amount:">{amount}</Field>
+      <Field label="Payment method:">{order.paymentMethod}</Field>
+
+      {payStatus !== EDataRequestStatus.Success && <Field label="Text message password:">{passwordInput}</Field>}
       {payStatus === EDataRequestStatus.InvalidData && <div className="validationError">Required field</div>}
       {payStatus === EDataRequestStatus.ServerError && <div className="validationError">Payment validation error!</div>}
       <Gap size={GapSize.Large} />
-      {payStatus !== EDataRequestStatus.Success && <GeneralButton onClick={handlePayClick} children="Pay by Moment" />}
+      {payStatus !== EDataRequestStatus.Success && <GeneralButton onClick={handlePayClick} children={`Pay ${amount}`} />}
       {payStatus === EDataRequestStatus.Success && <div className="success">Payment successfull!</div>}
     </div>
   );
 }
 
-export default OrderDetails;
+export { OrderDetails };

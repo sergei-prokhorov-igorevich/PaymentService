@@ -1,0 +1,13 @@
+.field {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+}
+
+.field:not(:last-of-type) {
+  margin-bottom: 6px;
+}
+
+.fieldLabel {
+  width: 180px;
+}

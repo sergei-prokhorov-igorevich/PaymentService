@@ -1,5 +1,5 @@
 <!-- https://daringfireball.net/projects/markdown/syntax -->
-# Payment service (simple demo-project)
+# Payment service (demo-project Sergei Prokhorov)
 
 ## Technical description
 
@@ -8,6 +8,7 @@ Common:
 - [TypeScript](https://www.typescriptlang.org/) and [JavaScript](https://www.w3.org/standards/webdesign/script)
 - [Webpack](https://webpack.js.org/)
 - [Docker](https://www.docker.com/) (in progress)
+- [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) (in progress)
 
 Backend:
 
