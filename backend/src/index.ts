@@ -6,7 +6,7 @@ import { initLogger } from './logger/logger';
 import { createLoggerRouter } from './layers/routers/loggerRouter';
 
 const apiUrl = '/api/v1';
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 81;
 
 const startAppAsync = async () => {
   await initLogger();

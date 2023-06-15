@@ -1,5 +1,5 @@
 const api = 'api/v1/';
-const host = 'http://localhost:80/';
+const host = 'http://localhost:81/';
 const endpoint = `${host}${api}`;
 
 const getOrderGuidUrl = (orderGuid: string) => `${endpoint}order/${orderGuid}`;

@@ -7,7 +7,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "server": "cross-env PORT=80 nodemon dist/server.js --watch dist -e js",
+    "server": "cross-env PORT=81 nodemon dist/server.js --watch dist -e js",
     "start": "npm-run-all -p watch server"
   },
   "keywords": [],

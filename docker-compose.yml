@@ -1,0 +1,13 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - 81:81
+    volumes:
+      - ./backend/node_modules:/app/node_modules
+  frontend:
+    build:
+      context: ./frontend
+    ports: 
+      - 80:80

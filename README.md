@@ -7,7 +7,7 @@ Common:
 
 - [TypeScript](https://www.typescriptlang.org/) and [JavaScript](https://www.w3.org/standards/webdesign/script)
 - [Webpack](https://webpack.js.org/)
-- [Docker](https://www.docker.com/) (in progress)
+- [Docker compose](https://www.docker.com/)
 - [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) (in progress)
 
 Backend:

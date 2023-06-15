@@ -34,10 +34,7 @@ module.exports = {
       { test: /\.([cm]?ts|tsx)$/, loader: 'ts-loader' },
       {
         test: /\.css$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-        ],
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
       },
     ],
   },
@@ -47,6 +44,6 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
     },
     compress: true,
-    port: 9000,
+    port: 80,
   },
 };
