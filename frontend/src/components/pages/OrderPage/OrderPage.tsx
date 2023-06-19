@@ -1,7 +1,7 @@
 import React from 'react';
 import { OrderDetails } from './components/OrderDetails/OrderDetails';
 import { loadOrder } from '../../../store/features/orderSlice';
-import { getOrderGuidUrl } from '../../../urls';
+import { orderGuidUrl } from '../../../urls';
 import { useAppDispatch } from '../../../store/store';
 import { EDataRequestStatus } from '../../../enums/dataRequestStatus';
 import { GlobalReach } from '../../../resources/svg/GlobalReach';
@@ -16,7 +16,7 @@ function OrderPage() {
   const [loadOrderStatus, setLoadOrderStatus] = React.useState<EDataRequestStatus>(EDataRequestStatus.NotRequested);
 
   React.useEffect(() => {
-    fetch(getOrderGuidUrl(orderGuid))
+    fetch(orderGuidUrl(orderGuid))
       .then((response) => {
         if (response.status === 200) {
           return response.json();

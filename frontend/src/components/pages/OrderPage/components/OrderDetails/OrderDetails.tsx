@@ -1,6 +1,6 @@
 import React from 'react';
 import { createPost } from '../../../../../utils/fetchUtils';
-import { payOrderUrl } from '../../../../../urls';
+import { orderGuidUrl } from '../../../../../urls';
 import { EDataRequestStatus } from '../../../../../enums/dataRequestStatus';
 import { useAppSelector } from '../../../../../store/store';
 import { GeneralButton } from '../../../../common/buttons/GeneralButton/GeneralButton';
@@ -19,7 +19,7 @@ function OrderDetails() {
 
   function handlePayClick(): void {
     if (password) {
-      createPost(payOrderUrl(order!.orderGuid), { password })
+      createPost(orderGuidUrl(order!.orderGuid), { password })
         .then((response) => setPayStatus(response.status === 200 ? EDataRequestStatus.Success : EDataRequestStatus.ServerError))
         .catch((error) => {
           setPayStatus(EDataRequestStatus.ServerError);

@@ -14,7 +14,7 @@ Backend:
 
 - [NodeJS](https://nodejs.org/)
 - [Express.js](https://expressjs.com/)
-- [MongoDB](https://www.mongodb.com/)
+- [MongoDB](https://www.mongodb.com/) and [Mongoose](https://mongoosejs.com/)
 
 Frontend:
 

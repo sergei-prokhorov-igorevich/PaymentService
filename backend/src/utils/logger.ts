@@ -2,7 +2,7 @@ import * as fs from 'fs/promises';
 import * as path from 'path';
 import { name as appName } from '../../package.json';
 
-const logsFolderPath = path.resolve(`${__dirname}/../../logs/`);
+const logsFolderPath = path.resolve(`${__dirname}/../logs/`);
 const logFilesPath = `${logsFolderPath}/${appName}.txt`;
 
 enum ELogLevel {

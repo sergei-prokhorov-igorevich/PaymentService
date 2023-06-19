@@ -10,7 +10,7 @@
     
     Url: FizzBuzz
     Method: GET
-    Parameters: x.
+    Parameters: x
     
     Response: as described above.
     *All responses must be strings (not numbers or objects)

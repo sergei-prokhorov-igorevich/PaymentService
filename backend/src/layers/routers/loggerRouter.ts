@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { readAllLogs } from '../../logger/logger';
+import { readAllLogs } from '../../utils/logger';
 
 const createLoggerRouter = (): Router => {
   const router = Router();
