@@ -1,10 +1,10 @@
 import React from 'react';
 import { OrderDetails } from './components/OrderDetails/OrderDetails';
 import { loadOrder } from '../../../store/features/orderSlice';
-import { orderGuidUrl } from '../../../urls';
+import { orderGuidUrl } from '../../../common/urls';
 import { useAppDispatch } from '../../../store/store';
 import { EDataRequestStatus } from '../../../enums/dataRequestStatus';
-import { GlobalReach } from '../../../resources/svg/GlobalReach';
+import { GlobalReach } from '../../common/svg/GlobalReach';
 import { Gap, GapSize } from '../../common/Gap/Gap';
 
 // Current mongoDB server for demo-project example has only one order.

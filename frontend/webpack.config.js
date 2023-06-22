@@ -44,6 +44,7 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
     },
     compress: true,
+    open: ['http://127.0.0.1/?order=f4f9d523-47b6-4758-998a-f6a0e47158ac'],
     port: 80,
   },
 };

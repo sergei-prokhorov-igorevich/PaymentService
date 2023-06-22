@@ -1,0 +1,18 @@
+.webSocketConsole {
+  display: flex;
+  flex-flow: column;
+  flex-basis: 50%;
+  padding-left: 32px;
+  background-color: #202124;
+  color: #e8eaed;
+}
+
+.webSocketConsoleContent {
+  margin: 24px 0;
+  padding: 12px;
+  overflow-y: auto;
+  background-color: #28273b;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 22px;
+}

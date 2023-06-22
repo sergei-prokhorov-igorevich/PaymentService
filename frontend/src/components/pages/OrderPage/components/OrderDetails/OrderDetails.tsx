@@ -1,11 +1,11 @@
 import React from 'react';
-import { createPost } from '../../../../../utils/fetchUtils';
-import { orderGuidUrl } from '../../../../../urls';
+import { orderGuidUrl } from '../../../../../common/urls';
 import { EDataRequestStatus } from '../../../../../enums/dataRequestStatus';
 import { useAppSelector } from '../../../../../store/store';
 import { GeneralButton } from '../../../../common/buttons/GeneralButton/GeneralButton';
 import { Gap, GapSize } from '../../../../common/Gap/Gap';
 import { Field } from '../../../../common/Field/Field';
+import { MasterCard } from '../../../../common/svg/MasterCard';
 import './orderDetails.css';
 
 function OrderDetails() {
@@ -19,8 +19,14 @@ function OrderDetails() {
 
   function handlePayClick(): void {
     if (password) {
-      createPost(orderGuidUrl(order!.orderGuid), { password })
-        .then((response) => setPayStatus(response.status === 200 ? EDataRequestStatus.Success : EDataRequestStatus.ServerError))
+      fetch(orderGuidUrl(order!.orderGuid), {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ password }),
+      }).then((response) => setPayStatus(response.status === 200 ? EDataRequestStatus.Success : EDataRequestStatus.ServerError))
         .catch((error) => {
           setPayStatus(EDataRequestStatus.ServerError);
           console.error(error);
@@ -45,7 +51,10 @@ function OrderDetails() {
       <Field label="Order number:">{order.orderId}</Field>
       <Field label="Payer's ID:">{order.payerId}</Field>
       <Field label="Amount:">{amount}</Field>
-      <Field label="Payment method:">{order.paymentMethod}</Field>
+      <Field label="Payment method:">
+        <MasterCard />
+        {order.paymentMethod}
+      </Field>
 
       {payStatus !== EDataRequestStatus.Success && <Field label="Text message password:">{passwordInput}</Field>}
       {payStatus === EDataRequestStatus.InvalidData && <div className="validationError">Required field</div>}

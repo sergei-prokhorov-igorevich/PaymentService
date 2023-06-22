@@ -1,18 +1,22 @@
 import { Router } from 'express';
 import { getOrderByGuid, payByOrder } from '../business/order';
 import { EHttpStatusCode } from '../../enums/httpStatusCode';
-import { ELogLevel, log } from '../../utils/logger';
+import { logVerbose } from '../../features/logger/loggerClient';
 
 const createOrderRouter = async (): Promise<Router> => {
   const router = Router();
 
   router.get('/:orderGuid', async (req, res) => {
     const orderGuid = req.params.orderGuid;
+
+    logVerbose(`Get order '${orderGuid}'.`);
+
     const order = await getOrderByGuid(orderGuid);
 
     if (order) {
       res.send(order);
     } else {
+      logVerbose(`Order '${orderGuid}' not found.`);
       res.sendStatus(EHttpStatusCode.NotFound);
     }
   });
@@ -21,8 +25,10 @@ const createOrderRouter = async (): Promise<Router> => {
     const orderGuid = req.params.orderGuid;
     const password = req.body['password'];
 
+    logVerbose(`Pay by order '${orderGuid}'.`);
+
     if (!password) {
-      log(ELogLevel.Warning, 'password is empty.');
+      logVerbose('password is empty.');
       res.sendStatus(EHttpStatusCode.BadRequest);
       return;
     }

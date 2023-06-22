@@ -2,11 +2,14 @@ const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   mode: 'production',
-  entry: './src/index.ts',
+  entry: {
+    server: './src/index.ts',
+    fileLogWorker: './src/features/worker/fileLogWorker.ts',
+  },
   target: 'node',
   externals: [nodeExternals()],
   output: {
-    filename: 'server.js',
+    filename: '[name].js',
     clean: true,
   },
   resolve: {

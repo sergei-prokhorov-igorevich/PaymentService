@@ -5,6 +5,9 @@ FROM node:alpine
 WORKDIR /app
 
 COPY /dist/server.js /app
+COPY /dist/fileLogWorker.js /app
+COPY /logs /app/logs
+
 COPY package.json /app
 COPY package-lock.json /app
 
